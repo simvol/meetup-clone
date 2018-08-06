@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './event.scss'
 import walk from '../../images/icons/walk.svg'
+import cafe from '../../images/icons/cafe.svg'
+import pet from '../../images/icons/pet.svg'
 import Moment from 'react-moment'
 
 export default class Event extends Component {
     render(){
         const { time, name, group, icon = 'walk' } = this.props.event
-        const icons = { walk }
+        const icons = { walk, cafe, pet }
 
         return (
             <div className="event-container row shadow-sm p-3 m-1 mt-4 bg-white rounded">
