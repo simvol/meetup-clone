@@ -1,0 +1,6 @@
+@import '../../styles/colors.scss';
+
+nav {
+    background-color: $header-color;
+    border-bottom: 1px solid $header-border-bottom;
+}

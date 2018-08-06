@@ -1,0 +1,19 @@
+@import "../../styles/colors.scss";
+
+img {
+    min-height: 35px;
+}
+
+.event-time {
+    color: $text-color-thirdly;
+}
+
+.event-desc-name {
+    font-size: 20px;
+    display: block;
+    color: $text-color-primery;
+}
+
+.event-desc-group {
+    color: $text-color-secondary;
+}
