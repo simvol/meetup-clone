@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Meetup clone",
   "main": "index.js",
+  "homepage": "https://simvol.github.io/meetup-clone",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "",
@@ -29,6 +32,7 @@
     "image-webpack-loader": "^4.3.1",
     "moment": "^2.22.2",
     "node-sass": "^4.9.2",
+    "react-cookie": "^2.2.0",
     "react-moment": "^0.7.9",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.21.0",
