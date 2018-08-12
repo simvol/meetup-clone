@@ -10,7 +10,7 @@ export default class Events extends Component {
                     const { events } = value
                     return (
                         <div className="m-2">
-                            {events.map(event => (
+                            {events && events.map(event => (
                                 <Event key={event.id} event={event} />
                             ))}
                         </div>
