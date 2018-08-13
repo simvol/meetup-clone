@@ -18461,8 +18461,8 @@ var App = function (_Component) {
                             _react2.default.createElement(
                                 _reactRouterDom.Switch,
                                 null,
-                                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Events2.default }),
-                                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/event', component: _EventDetails2.default })
+                                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/meetup-clone/', component: _Events2.default }),
+                                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/meetup-clone/event', component: _EventDetails2.default })
                             )
                         )
                     )
