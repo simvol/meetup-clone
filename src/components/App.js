@@ -16,7 +16,7 @@ class App extends Component {
                         <div className='container-fluid'>
                             <Switch>
                                 <Route exact path="/" component={Events} />
-                                <Route exact path="/event" component={EventDetails} />
+                                <Route exact path="/meetup-clone/event" component={EventDetails} />
                             </Switch>
                         </div>
                     </div>

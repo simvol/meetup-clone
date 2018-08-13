@@ -4,13 +4,40 @@ import { IS_PRODUCTION, URL, GET_TOKEN_URL } from '../../env-config'
 
 const Context = React.createContext()
 
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'EVENTS_LOADED':
+            return {
+                ...state,
+                events: action.payload,
+                filteredEvents: action.payload
+            }
+        case 'FILTER_CHANGED':
+            return {
+                ...state,
+                filter: action.payload,
+                filteredEvents: action.payload 
+                    ? state.events.filter(event => {
+                            return event.name.toLowerCase().indexOf(action.payload.toLowerCase()) !== -1 
+                                || event.group.name.toLowerCase().indexOf(action.payload.toLowerCase()) !== -1
+                        })
+                    : state.events
+            }
+        default: return state
+    }
+}
+
 export class Provider extends Component {
     state = {
         events: [],
         event: {},
+        eventsFilter: null,
+        filteredEvents: [],
+        filter: '',
         accessToken: window.localStorage.getItem('access_token'),
         tokenType: window.localStorage.getItem('token_type'),
-        tokenExpiresIn: window.localStorage.getItem('token_expires_in')
+        tokenExpiresIn: window.localStorage.getItem('token_expires_in'),
+        dispatch: action => this.setState(state => reducer(state, action))
     }
 
     getEvents(){
@@ -21,9 +48,10 @@ export class Provider extends Component {
         fetch(getContactsUrl)
             .then(res => res.json())
             .then(data => {
-                this.setState({
-                    events: data.events
-                })
+                // this.setState({
+                //     events: data.events
+                // })
+                this.state.dispatch({ type: 'EVENTS_LOADED', payload: data.events })
             })
             .catch(err => console.log(err))
     }

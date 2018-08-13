@@ -7,7 +7,7 @@ export default class Events extends Component {
         return (
             <Consumer>
                 {value => {
-                    const { events } = value
+                    const events = value.filteredEvents
                     return (
                         <div className="m-2">
                             {events && events.map(event => (
