@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import { IS_PRODUCTION, URL, GET_TOKEN_URL } from '../../env-config'
+import { EVENT_VIEW_PANELS_MODE } from '../constants/main'
 
 
 const Context = React.createContext()
 
 const reducer = (state, action) => {
     switch (action.type) {
+        case 'CHANGE_EVENTS_VIEW_MODE':
+            return {
+                ...state,
+                eventsMode: action.payload,
+            }
+        case 'EVENT_DETAILS_LOADED':
+            return {
+                ...state,
+                event: action.payload,
+            }
         case 'EVENTS_LOADED':
             return {
                 ...state,
@@ -15,7 +26,7 @@ const reducer = (state, action) => {
         case 'FILTER_CHANGED':
             return {
                 ...state,
-                filter: action.payload,
+                inputFilter: action.payload,
                 filteredEvents: action.payload 
                     ? state.events.filter(event => {
                             return event.name.toLowerCase().indexOf(action.payload.toLowerCase()) !== -1 
@@ -33,12 +44,27 @@ export class Provider extends Component {
         event: {},
         eventsFilter: null,
         filteredEvents: [],
-        filter: '',
+        inputFilter: '',
+        eventsMode: EVENT_VIEW_PANELS_MODE,
         accessToken: window.localStorage.getItem('access_token'),
         tokenType: window.localStorage.getItem('token_type'),
         tokenExpiresIn: window.localStorage.getItem('token_expires_in'),
         dispatch: action => this.setState(state => reducer(state, action))
     }
+
+    getEventDetails(){
+        let getContactDetails = IS_PRODUCTION
+            ? `${URL}/.../...?access_token=${this.state.accessToken}`
+            : `${URL}/event.json`
+
+        fetch(getContactDetails)
+            .then(res => res.json())
+            .then(data => {
+                this.state.dispatch({ type: 'EVENT_DETAILS_LOADED', payload: data })
+            })
+            .catch(err => console.log(err))
+    }
+
 
     getEvents(){
         let getContactsUrl = IS_PRODUCTION
@@ -48,9 +74,6 @@ export class Provider extends Component {
         fetch(getContactsUrl)
             .then(res => res.json())
             .then(data => {
-                // this.setState({
-                //     events: data.events
-                // })
                 this.state.dispatch({ type: 'EVENTS_LOADED', payload: data.events })
             })
             .catch(err => console.log(err))
@@ -81,6 +104,7 @@ export class Provider extends Component {
             location.href = GET_TOKEN_URL
         } else {
             this.getEvents();
+            this.getEventDetails();
         }
     }
 

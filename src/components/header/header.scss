@@ -4,3 +4,12 @@ nav {
     background-color: $header-color;
     border-bottom: 1px solid $header-border-bottom;
 }
+
+.mode-switch > * {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.filter-container {
+    margin-left: 20px;
+}
