@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Event from '../event/Event'
 import { Consumer } from '../Context'
+import './events.scss'
 
 export default class Events extends Component {
     render() {
@@ -9,7 +10,7 @@ export default class Events extends Component {
             <Consumer>
                 {value => {
                     const events = value.filteredEvents
-                    classes += ' view-' + value.eventsMode
+                    classes += value.eventsMode ? ' view-' + value.eventsMode : ''
 
                     return (
                         <div className={classes}>

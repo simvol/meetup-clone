@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { IS_PRODUCTION, URL, GET_TOKEN_URL } from '../../env-config'
-import { EVENT_VIEW_PANELS_MODE } from '../constants/main'
+import { EVENTS_PANELS_VIEW_MODE, EVENTS_CARDS_VIEW_MODE } from '../constants/main'
 
 
 const Context = React.createContext()
@@ -45,7 +45,7 @@ export class Provider extends Component {
         eventsFilter: null,
         filteredEvents: [],
         inputFilter: '',
-        eventsMode: EVENT_VIEW_PANELS_MODE,
+        eventsMode: EVENTS_PANELS_VIEW_MODE,
         accessToken: window.localStorage.getItem('access_token'),
         tokenType: window.localStorage.getItem('token_type'),
         tokenExpiresIn: window.localStorage.getItem('token_expires_in'),
