@@ -45,7 +45,7 @@ export class Provider extends Component {
         eventsFilter: null,
         filteredEvents: [],
         inputFilter: '',
-        eventsMode: EVENTS_PANELS_VIEW_MODE,
+        eventsMode: EVENTS_CARDS_VIEW_MODE,
         accessToken: window.localStorage.getItem('access_token'),
         tokenType: window.localStorage.getItem('token_type'),
         tokenExpiresIn: window.localStorage.getItem('token_expires_in'),

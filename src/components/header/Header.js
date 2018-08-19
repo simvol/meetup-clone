@@ -26,7 +26,7 @@ class Header extends Component {
                             </a>
                             <div className="mode-switch">
                                 <a href="#" onClick={this.changeMode.bind(this, dispatch, EVENTS_CARDS_VIEW_MODE)}>
-                                    <img height="10" src="src/images/icons/card.svg"/></a>
+                                    <img height="35" src="src/images/icons/card.svg"/></a>
                                 <a href="#" onClick={this.changeMode.bind(this, dispatch, EVENTS_PANELS_VIEW_MODE)}>
                                     <img width="45" src="src/images/icons/panel.svg"/></a>
 

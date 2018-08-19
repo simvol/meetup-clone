@@ -1,19 +1,125 @@
 @import "../../styles/colors.scss";
 
-img {
-    min-height: 35px;
-}
+$card-width: 300;
+$card-height: $card-width * 1.2;
+$ribbon-width: $card-width / 6;
+$ribbon-height: $card-height / 5;
 
 .event-time {
     color: $text-color-thirdly;
 }
 
-.event-desc-name {
+.event-info-name {
     font-size: 20px;
     display: block;
     color: $text-color-primery;
 }
 
-.event-desc-group {
+.event-info-group {
     color: $text-color-secondary;
+}
+
+
+// ===View cards===
+
+.view-cards .event-container {
+    width: $card-width + px;
+    height: $card-height + px;
+    position: relative;
+
+    .event-info {
+        margin-top: ($card-height / 9) + px;
+    }
+
+    .event-info-separator {
+        border: 1px solid #bbb;
+        width: 30px;
+        margin: 5px 0;
+    }
+
+    .event-desc {
+        margin-top: ($card-height / 9) + px;
+    }
+}
+
+.event-container .ribbon {
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    right: ($card-width/10) + px;
+    width: $ribbon-width + px;
+    height: $ribbon-height + px;
+
+    &.event-full {
+        background: url("../../images/icons/many-people.svg") $event-full-color;
+        background-size: 80%;
+        background-position: 50% 20%;
+    }
+
+    &.event-nearly-full {
+        background: url("../../images/icons/several-people.svg") $event-nearly-full-color;
+        background-size: 70%;
+        background-position: 50% 25%;
+    }
+
+    &.event-half-full {
+        background: url("../../images/icons/few-people.svg") $event-half-full-color;
+        background-size: 60%;
+        background-position: 50% 30%;
+    }
+
+    &.event-getting-full {
+        background: url("../../images/icons/two-people.svg") $event-getting-full-color;
+        background-size: 50%;
+        background-position: 50% 30%;
+    }
+    
+    &.event-fresh {
+        background: url("../../images/icons/person.svg") $event-fresh-color;
+        background-size: 40%;
+        background-position: 50% 30%;
+    }
+
+    &.event-full,
+    &.event-nearly-full,
+    &.event-half-full,
+    &.event-getting-full,
+    &.event-fresh {
+        background-repeat: no-repeat;
+    }
+
+
+    img, span {
+        width: 50%;
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate3d(-50%, -60%, 0);
+    }
+
+    span {
+        font-size: 20px;
+        color: #ffffff;
+    }
+
+    img {
+        width: 50%;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 ($ribbon-width/2) + px ($ribbon-height/3) + px ($ribbon-width/2) + px;
+        border-color: transparent transparent #ffffff transparent;
+    }
+}
+
+// ===View Panels===
+
+.view-panels .ribbon {
+    display: none;
 }

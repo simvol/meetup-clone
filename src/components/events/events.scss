@@ -1,9 +1,5 @@
 .view-cards {
     display: flex;
     flex-wrap: wrap;
-
-    .event-container {
-        width: 300px;
-        height: 360px;
-    }
+    justify-content: center;
 }
