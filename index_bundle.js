@@ -18983,7 +18983,7 @@ var Event = function (_Component) {
                 rsvp_limit = _props$event.rsvp_limit,
                 yes_rsvp_count = _props$event.yes_rsvp_count;
 
-            var desc = (0, _helpers.getShorterThan)((0, _helpers.getWithoutTags)(description), DESC_LENGTH);
+            var desc = (0, _helpers.getShorterThan)((0, _helpers.getWithoutTags)(description), DESC_LENGTH - name.length);
 
             return _react2.default.createElement(
                 _Context.Consumer,
@@ -19780,12 +19780,12 @@ var Header = function (_Component) {
                             _react2.default.createElement(
                                 'a',
                                 { href: '#', onClick: _this2.changeMode.bind(_this2, dispatch, _main.EVENTS_CARDS_VIEW_MODE) },
-                                _react2.default.createElement('img', { height: '35', src: 'src/images/icons/card.svg' })
+                                'Cards'
                             ),
                             _react2.default.createElement(
                                 'a',
                                 { href: '#', onClick: _this2.changeMode.bind(_this2, dispatch, _main.EVENTS_PANELS_VIEW_MODE) },
-                                _react2.default.createElement('img', { width: '45', src: 'src/images/icons/panel.svg' })
+                                'Panels'
                             ),
                             _react2.default.createElement(
                                 'div',
