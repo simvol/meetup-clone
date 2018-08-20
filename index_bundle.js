@@ -19667,7 +19667,6 @@ var EventsMap = function (_Component) {
             });
 
             var markers = _this.props.events.map(function (event) {
-
                 var markerContent = '<div>\n                                    <h5>' + event.name + '</h5>\n                                    <p>' + event.description + '</p>\n                                </div>';
                 var infoWindow = new google.maps.InfoWindow({
                     content: markerContent,
