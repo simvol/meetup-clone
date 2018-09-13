@@ -19101,9 +19101,9 @@ var Event = function (_Component) {
                 function (value) {
                     var panelsViewMode = value.eventsMode === _main.EVENTS_PANELS_VIEW_MODE;
                     var containerClasses = 'event-container shadow-sm p-3 m-1 mt-4 bg-white border rounded ' + (panelsViewMode ? 'row' : '');
-                    var eventTimeClasses = 'event-time ' + (panelsViewMode ? 'col-sm-2 d-flex align-items-center' : '');
-                    var eventInfoClasses = 'event-info ' + (panelsViewMode ? 'col-sm-4' : '');
-                    var eventDescClasses = 'event-desc ' + (panelsViewMode ? 'col-sm-6' : '');
+                    var eventTimeClasses = 'event-time ' + (panelsViewMode ? 'col-sm-2  offset-sm-1 d-flex align-items-center' : '');
+                    var eventInfoClasses = 'event-info ' + (panelsViewMode ? 'col-sm-3' : '');
+                    var eventDescClasses = 'event-desc ' + (panelsViewMode ? 'col-sm-5' : '');
                     var ribbonClasses = 'ribbon ' + _this2.getRibbonColor(rsvp_limit, yes_rsvp_count);
 
                     return _react2.default.createElement(
